@@ -10,7 +10,7 @@ security: public
 author: jeffng
 ms.author: jeffng
 ms.date: 05/12/2020
-edited: 00/00/0000
+edited: 02/09/2021
 ---
 
 # Activities
@@ -40,6 +40,7 @@ Field | Purpose | Notes
 `maxPlayers` | Maximum allowed players in this activity. | Optional. If specified, must be > 1 and <= 100.
 `currentPlayers` | Current number of players in this activity. | Optional. If specified, must be > 0 and <= 100.
 `groupId` | A title-defined Id. Players with the same groupID are recognized in MPA to be playing together. | Must be < 128 characters.
+`platform` | When set to a specific platform, limits crossplay via invites and joins to only that platform. Not set enables crossplay with all defined platforms. | See "Supporting crossplay activites" below.
 
 ## Privacy
 A title may wish to allow only a subset of the users on its social graph to join
@@ -51,6 +52,14 @@ Value | Meaning
 `Public` | All players may join this activity.
 `Followed` | If the activity creator follows another player, that player may join.
 `InviteOnly` | No players may join this activity, unless responding to an invite.
+
+## Supporting crossplay activities
+
+When creating an activity in the GDK, titles may specify an `allowCrossplay` flag.
+If `false`, the GDK automatically fills the platform field of an invite with the
+current platform. If `true`, it leaves the platform field `null`, indicating that
+the invite is cross platform. The list of platforms allowed via crossplay is defined by title 
+configuration. Console generations are considered crossplay in this scenario.
 
 ## Retrieving activities
 When retrieving activities for other players, sometimes the connection string is

@@ -14,7 +14,7 @@ edited: 04/04/2017
 
 # Multiplayer overview
 
-Multiplayer features in Xbox Live include Multiplayer Session Directory, matchmaking, networking, voice chat, and text chat.
+Multiplayer features in Xbox Live include Multiplayer Activity, Multiplayer Session Directory, matchmaking, networking, voice chat, and text chat.
 
 Multiplayer features empower your game to bring Xbox Live players together over the Internet and can dramatically extend the life and usage of a title beyond typical solo play.
 By building a great multiplayer experience for your audience, you can leverage the large social network of Xbox Live gamers to increase the user base for your game and promote a sustained community of dedicated fans playing together.
@@ -25,6 +25,8 @@ By building a great multiplayer experience for your audience, you can leverage t
 The Xbox Live Multiplayer features are provided as a set of client APIs that you can use to implement real-time multiplayer gameplay.
 
 The major sub-systems in the API suite are:
+
+- The **Xbox Live Multiplayer Activity (MPA)** service. The MPA feature simplifies the integration of your own multiplayer implementation into Xbox Live for player activities (joins), invites, and recent players. This feature is the preferred route for meeting platform requirements if your title doesn't need the functionality of the platforms session directory feature. See [Multiplayer Activity feature overview](mpa/live-mpa-overview).
 
 - The **Xbox Live Multiplayer Session Directory (MPSD)** service. The MPSD service works with integrated UI experiences to facilitate users finding and inviting each other for play. Integration with Xbox Live's services also allows customers to use Xbox Live Party Chat to assemble. See [Multiplayer Session Directory overview](mpsd/live-mpsd-overview.md).
 
@@ -41,6 +43,16 @@ For an overview of some of the most common multiplayer scenarios, and which Xbox
 
 Depending on your scenario, the Xbox Live Multiplayer features provide several approaches to implementing Xbox Live Multiplayer in your game.
 
+### Multiplyaer Activity (MPA)
+
+Multiplayer Activity is a lightweight option to implment platform integration for joinable games, inviting players and recording recent player interactions. This feature set's primary goal is to make integrating into the platform easy for title developers who already have their own multiplayer solution. 
+
+MPA provides the following functionality:
+ - Advertising a player as in a joinable multiplayer experience through an activity
+ - Enabling inviting other players into that joinable experience
+ - Recording meaningful interactions that occured while in multiplayer, which are stored in the Xbox Live recent player list
+
+The MPA feature is intended to replace the need of the other options listed here, not to be mixed with certain features like those offered in the multiplayer session directory. 
 
 ### Xbox Integrated Multiplayer (XIM)
 
